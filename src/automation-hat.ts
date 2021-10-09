@@ -1,15 +1,18 @@
+import { DigitalInputService } from './io/digital-input';
+import { DigitalOutputService } from './io/digital-output';
+import { LightService } from './io/light';
+import { RelayService } from './io/relay';
+
 export class AutomationHat {
-  private readonly relay1 = 13;
-  private readonly relay2 = 19;
-  private readonly relay3 = 16;
+  readonly digitalInputs: DigitalInputService;
+  readonly digitalOutputs: DigitalOutputService;
+  readonly lights: LightService;
+  readonly relays: RelayService;
 
-  private readonly input1 = 26;
-  private readonly input2 = 20;
-  private readonly input3 = 21;
-
-  private readonly output1 = 5;
-  private readonly output2 = 12;
-  private readonly output3 = 6;
-
-  private readonly updatesPerSecond = 30;
+  constructor() {
+    this.digitalInputs = new DigitalInputService();
+    this.digitalOutputs = new DigitalOutputService();
+    this.lights = new LightService();
+    this.relays = new RelayService();
+  }
 }
