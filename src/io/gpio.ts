@@ -1,13 +1,13 @@
 export enum Gpio {
-  DigitalInput1 = 26,
-  DigitalInput2 = 20,
-  DigitalInput3 = 21,
+  DigitalInput1 = 37,
+  DigitalInput2 = 38,
+  DigitalInput3 = 40,
 
-  DigitalOutput1 = 5,
-  DigitalOutput2 = 12,
-  DigitalOutput3 = 6,
+  DigitalOutput1 = 29,
+  DigitalOutput2 = 32,
+  DigitalOutput3 = 31,
 
-  Relay1 = 13,
-  Relay2 = 19,
-  Relay3 = 16,
+  Relay1 = 33,
+  Relay2 = 35,
+  Relay3 = 36,
 }

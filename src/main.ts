@@ -9,18 +9,14 @@ async function main() {
 
   // test all the relays work
   ah.relays.one.turnOn();
-  await delay(100);
   ah.relays.two.turnOn();
-  await delay(100);
   ah.relays.three.turnOn();
-  await delay(100);
+  await delay(500);
 
   ah.relays.one.turnOff();
-  await delay(100);
   ah.relays.two.turnOff();
-  await delay(100);
   ah.relays.three.turnOff();
-  await delay(100);
+  await delay(500);
 }
 
 main();

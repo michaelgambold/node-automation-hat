@@ -1,4 +1,4 @@
-import { open, LOW, HIGH, write } from 'rpio';
+import { open, LOW, HIGH, write, OUTPUT } from 'rpio';
 import { Gpio } from './gpio';
 
 export class RelayService {
@@ -20,7 +20,7 @@ export class Relay {
     this.gpio = gpio;
 
     // set initial state
-    open(gpio, LOW);
+    open(gpio, OUTPUT, LOW);
   }
 
   turnOff() {
