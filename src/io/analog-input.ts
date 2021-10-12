@@ -1,14 +1,14 @@
 export class AnalogInputService {
-  readonly one: AnalogInput;
-  readonly two: AnalogInput;
-  readonly three: AnalogInput;
-  readonly four: AnalogInput;
+  readonly input1: AnalogInput;
+  readonly input2: AnalogInput;
+  readonly input3: AnalogInput;
+  readonly input4: AnalogInput;
 
   constructor() {
-    this.one = new AnalogInput();
-    this.two = new AnalogInput();
-    this.three = new AnalogInput();
-    this.four = new AnalogInput();
+    this.input1 = new AnalogInput();
+    this.input2 = new AnalogInput();
+    this.input3 = new AnalogInput();
+    this.input4 = new AnalogInput();
   }
 }
 

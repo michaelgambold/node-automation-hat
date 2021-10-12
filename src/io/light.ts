@@ -28,23 +28,44 @@ export enum LightIndex {
 }
 
 export class LightService {
-  readonly lights: Light[];
+  readonly analogInput1: Light;
+  readonly analogInput2: Light;
+  readonly analogInput3: Light;
 
+  readonly digitalInput1: Light;
+  readonly digitalInput2: Light;
+  readonly digitalInput3: Light;
+
+  readonly digitalOutput1: Light;
+  readonly digitalOutput2: Light;
+  readonly digitalOutput3: Light;
+
+  // NO = Normally Open, NC = Normally Closed
+  readonly relay1NO: Light;
+  readonly relay1NC: Light;
+  readonly relay2NO: Light;
+  readonly relay2NC: Light;
+  readonly relay3NO: Light;
+  readonly relay3NC: Light;
+
+  readonly power: Light;
+  readonly comms: Light;
+  readonly warn: Light;
+
+  private readonly lights: Light[];
   private readonly maxBrightness = 128;
 
   // sn3218 command register addresses
   private readonly cmdEnableOutput = 0x00;
   private readonly cmdSetPwmValues = 0x01;
   private readonly cmdEnableLeds = 0x13;
-  // private readonly cmdEnableLeds7to12 = 0x14;
-  // private readonly cmdEnableLeds13to18 = 0x15;
   private readonly cmdUpdate = 0x16;
   private readonly cmdReset = 0x17;
 
   constructor() {
     i2cBegin();
-    i2cSetSlaveAddress(0x54);
-    i2cSetBaudRate(400_000);
+    i2cSetSlaveAddress(0x54); // sn3218 fixed address
+    i2cSetBaudRate(400_000); // sn3218 fixed baud rate
 
     this.lights = [];
 
@@ -52,6 +73,30 @@ export class LightService {
     for (let i = 0; i < 18; i++) {
       this.lights[i] = new Light(i);
     }
+
+    this.analogInput1 = this.lights[LightIndex.AnalogInput1];
+    this.analogInput2 = this.lights[LightIndex.AnalogInput2];
+    this.analogInput3 = this.lights[LightIndex.AnalogInput3];
+
+    this.digitalInput1 = this.lights[LightIndex.DigitalInput1];
+    this.digitalInput2 = this.lights[LightIndex.DigitalInput2];
+    this.digitalInput3 = this.lights[LightIndex.DigitalInput3];
+
+    this.digitalOutput1 = this.lights[LightIndex.DigitalOutput1];
+    this.digitalOutput2 = this.lights[LightIndex.DigitalOutput2];
+    this.digitalOutput3 = this.lights[LightIndex.DigitalOutput3];
+
+    // NO = Normally Open, NC = Normally Closed
+    this.relay1NO = this.lights[LightIndex.Relay1NO];
+    this.relay1NC = this.lights[LightIndex.Relay1NC];
+    this.relay2NO = this.lights[LightIndex.Relay2NO];
+    this.relay2NC = this.lights[LightIndex.Relay2NC];
+    this.relay3NO = this.lights[LightIndex.Relay3NO];
+    this.relay3NC = this.lights[LightIndex.Relay3NC];
+
+    this.power = this.lights[LightIndex.Power];
+    this.comms = this.lights[LightIndex.Comms];
+    this.warn = this.lights[LightIndex.Warn];
   }
 
   reset(): void {
@@ -81,7 +126,7 @@ export class LightService {
 
   updateLights(): void {
     const lightData = this.lights.map((light) => {
-      return light.isOn ? this.maxBrightness : 0;
+      return light.state === 'on' ? this.maxBrightness : 0;
     });
 
     i2cWrite(Buffer.from([this.cmdSetPwmValues, ...lightData]));
@@ -89,25 +134,30 @@ export class LightService {
   }
 }
 
-export class Light {
-  isOn: boolean;
+export type LightState = 'on' | 'off';
 
+export class Light {
+  get state(): LightState {
+    return this.currState;
+  }
+
+  private currState: LightState;
   readonly lightIndex: LightIndex;
 
   constructor(lightIndex: LightIndex) {
     this.lightIndex = lightIndex;
-    this.isOn = false;
+    this.currState = 'off';
   }
 
   off(): void {
-    this.isOn = false;
+    this.currState = 'off';
   }
 
   on(): void {
-    this.isOn = true;
+    this.currState = 'on';
   }
 
   toggle(): void {
-    this.isOn = !this.isOn;
+    this.currState = this.currState === 'off' ? 'on' : 'off';
   }
 }

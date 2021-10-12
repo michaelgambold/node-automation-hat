@@ -11,181 +11,163 @@ async function testLights(ah: AutomationHat) {
   ah.lights.enableLights(0b111111111111111111);
 
   // turn on all lights
-  ah.lights.lights[LightIndex.AnalogInput1].on();
+  ah.lights.analogInput1.on();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.AnalogInput2].on();
+  ah.lights.analogInput2.on();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.AnalogInput3].on();
+  ah.lights.analogInput3.on();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.DigitalOutput1].on();
+  ah.lights.digitalOutput1.on();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.DigitalOutput2].on();
+  ah.lights.digitalOutput2.on();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.DigitalOutput3].on();
+  ah.lights.digitalOutput3.on();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.DigitalInput1].on();
+  ah.lights.digitalInput1.on();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.DigitalInput2].on();
+  ah.lights.digitalInput2.on();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.DigitalInput3].on();
+  ah.lights.digitalInput3.on();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Relay1NO].on();
+  ah.lights.relay1NO.on();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Relay1NC].on();
+  ah.lights.relay1NC.on();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Relay2NO].on();
+  ah.lights.relay2NO.on();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Relay2NC].on();
+  ah.lights.relay2NC.on();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Relay3NO].on();
+  ah.lights.relay3NO.on();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Relay3NC].on();
+  ah.lights.relay3NC.on();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Warn].on();
+  ah.lights.warn.on();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Comms].on();
+  ah.lights.comms.on();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Power].on();
+  ah.lights.power.on();
   ah.lights.updateLights();
   await delay(100);
 
   // turn off all lights
-  ah.lights.lights[LightIndex.AnalogInput1].off();
+  ah.lights.analogInput1.off();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.AnalogInput2].off();
+  ah.lights.analogInput2.off();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.AnalogInput3].off();
+  ah.lights.analogInput3.off();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.DigitalOutput1].off();
+  ah.lights.digitalOutput1.off();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.DigitalOutput2].off();
+  ah.lights.digitalOutput2.off();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.DigitalOutput3].off();
+  ah.lights.digitalOutput3.off();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.DigitalInput1].off();
+  ah.lights.digitalInput1.off();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.DigitalInput2].off();
+  ah.lights.digitalInput2.off();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.DigitalInput3].off();
+  ah.lights.digitalInput3.off();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Relay1NO].off();
+  ah.lights.relay1NO.off();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Relay1NC].off();
+  ah.lights.relay1NC.off();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Relay2NO].off();
+  ah.lights.relay2NO.off();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Relay2NC].off();
+  ah.lights.relay2NC.off();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Relay3NO].off();
+  ah.lights.relay3NO.off();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Relay3NC].off();
+  ah.lights.relay3NC.off();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Warn].off();
+  ah.lights.warn.off();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Comms].off();
+  ah.lights.comms.off();
   ah.lights.updateLights();
   await delay(100);
 
-  ah.lights.lights[LightIndex.Power].off();
+  ah.lights.power.off();
   ah.lights.updateLights();
   await delay(100);
-
-  // blink twice
-
-  ah.lights.lights.forEach((light) => light.on());
-  ah.lights.updateLights();
-  await delay(200);
-
-  ah.lights.lights.forEach((light) => light.off());
-  ah.lights.updateLights();
-  await delay(200);
-
-  ah.lights.lights.forEach((light) => light.on());
-  ah.lights.updateLights();
-  await delay(200);
-
-  ah.lights.lights.forEach((light) => light.off());
-  ah.lights.updateLights();
-  await delay(200);
 }
 
 async function testRelays(ah: AutomationHat) {
   // test all the relays work
   for (let i = 0; i < 2; i++) {
-    ah.relays.one.turnOn();
-    ah.relays.two.turnOn();
-    ah.relays.three.turnOn();
+    ah.relays.relay1.on();
+    ah.relays.relay2.on();
+    ah.relays.relay3.on();
     await delay(500);
 
-    ah.relays.one.turnOff();
-    ah.relays.two.turnOff();
-    ah.relays.three.turnOff();
+    ah.relays.relay1.off();
+    ah.relays.relay2.off();
+    ah.relays.relay3.off();
     await delay(500);
   }
 }

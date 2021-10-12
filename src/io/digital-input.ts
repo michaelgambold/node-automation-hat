@@ -1,13 +1,25 @@
 export class DigitalInputService {
-  readonly one: DigitalInput;
-  readonly two: DigitalInput;
-  readonly three: DigitalInput;
+  readonly input1: DigitalInput;
+  readonly input2: DigitalInput;
+  readonly input3: DigitalInput;
 
   constructor() {
-    this.one = new DigitalInput();
-    this.two = new DigitalInput();
-    this.three = new DigitalInput();
+    this.input1 = new DigitalInput();
+    this.input2 = new DigitalInput();
+    this.input3 = new DigitalInput();
   }
 }
 
-class DigitalInput {}
+type DigitalInputState = 'high' | 'low';
+
+class DigitalInput {
+  get state(): DigitalInputState {
+    return this.currState;
+  }
+
+  private currState: DigitalInputState;
+
+  constructor() {
+    this.currState = 'low';
+  }
+}

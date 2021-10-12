@@ -1,12 +1,12 @@
 export class DigitalOutputService {
-  readonly one: DigitalOutput;
-  readonly two: DigitalOutput;
-  readonly three: DigitalOutput;
+  readonly output1: DigitalOutput;
+  readonly output2: DigitalOutput;
+  readonly output3: DigitalOutput;
 
   constructor() {
-    this.one = new DigitalOutput();
-    this.two = new DigitalOutput();
-    this.three = new DigitalOutput();
+    this.output1 = new DigitalOutput();
+    this.output2 = new DigitalOutput();
+    this.output3 = new DigitalOutput();
   }
 }
 
