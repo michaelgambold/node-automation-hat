@@ -1,182 +1,188 @@
 import { AutomationHat } from './automation-hat';
-import { LightIndex } from './io/light';
+import { LightService } from './io/light';
+import { RelayService } from './io/relay';
 
 function delay(ms: number) {
   return new Promise((res) => setTimeout(res, ms));
 }
 
-async function testLights(ah: AutomationHat) {
+async function testLights(ls: LightService) {
   // test all the lights work
-  ah.lights.enable();
-  ah.lights.enableLights(0b111111111111111111);
+  ls.enable();
 
   // turn on all lights
-  ah.lights.analogInput1.on();
-  ah.lights.updateLights();
+  ls.analogInput1.on();
+  ls.update();
   await delay(100);
 
-  ah.lights.analogInput2.on();
-  ah.lights.updateLights();
+  ls.analogInput2.on();
+  ls.update();
   await delay(100);
 
-  ah.lights.analogInput3.on();
-  ah.lights.updateLights();
+  ls.analogInput3.on();
+  ls.update();
   await delay(100);
 
-  ah.lights.digitalOutput1.on();
-  ah.lights.updateLights();
+  ls.digitalOutput1.on();
+  ls.update();
   await delay(100);
 
-  ah.lights.digitalOutput2.on();
-  ah.lights.updateLights();
+  ls.digitalOutput2.on();
+  ls.update();
   await delay(100);
 
-  ah.lights.digitalOutput3.on();
-  ah.lights.updateLights();
+  ls.digitalOutput3.on();
+  ls.update();
   await delay(100);
 
-  ah.lights.digitalInput1.on();
-  ah.lights.updateLights();
+  ls.digitalInput1.on();
+  ls.update();
   await delay(100);
 
-  ah.lights.digitalInput2.on();
-  ah.lights.updateLights();
+  ls.digitalInput2.on();
+  ls.update();
   await delay(100);
 
-  ah.lights.digitalInput3.on();
-  ah.lights.updateLights();
+  ls.digitalInput3.on();
+  ls.update();
   await delay(100);
 
-  ah.lights.relay1NO.on();
-  ah.lights.updateLights();
+  ls.relay1NO.on();
+  ls.update();
   await delay(100);
 
-  ah.lights.relay1NC.on();
-  ah.lights.updateLights();
+  ls.relay1NC.on();
+  ls.update();
   await delay(100);
 
-  ah.lights.relay2NO.on();
-  ah.lights.updateLights();
+  ls.relay2NO.on();
+  ls.update();
   await delay(100);
 
-  ah.lights.relay2NC.on();
-  ah.lights.updateLights();
+  ls.relay2NC.on();
+  ls.update();
   await delay(100);
 
-  ah.lights.relay3NO.on();
-  ah.lights.updateLights();
+  ls.relay3NO.on();
+  ls.update();
   await delay(100);
 
-  ah.lights.relay3NC.on();
-  ah.lights.updateLights();
+  ls.relay3NC.on();
+  ls.update();
   await delay(100);
 
-  ah.lights.warn.on();
-  ah.lights.updateLights();
+  ls.warn.on();
+  ls.update();
   await delay(100);
 
-  ah.lights.comms.on();
-  ah.lights.updateLights();
+  ls.comms.on();
+  ls.update();
   await delay(100);
 
-  ah.lights.power.on();
-  ah.lights.updateLights();
+  ls.power.on();
+  ls.update();
   await delay(100);
 
   // turn off all lights
-  ah.lights.analogInput1.off();
-  ah.lights.updateLights();
+  ls.analogInput1.off();
+  ls.update();
   await delay(100);
 
-  ah.lights.analogInput2.off();
-  ah.lights.updateLights();
+  ls.analogInput2.off();
+  ls.update();
   await delay(100);
 
-  ah.lights.analogInput3.off();
-  ah.lights.updateLights();
+  ls.analogInput3.off();
+  ls.update();
   await delay(100);
 
-  ah.lights.digitalOutput1.off();
-  ah.lights.updateLights();
+  ls.digitalOutput1.off();
+  ls.update();
   await delay(100);
 
-  ah.lights.digitalOutput2.off();
-  ah.lights.updateLights();
+  ls.digitalOutput2.off();
+  ls.update();
   await delay(100);
 
-  ah.lights.digitalOutput3.off();
-  ah.lights.updateLights();
+  ls.digitalOutput3.off();
+  ls.update();
   await delay(100);
 
-  ah.lights.digitalInput1.off();
-  ah.lights.updateLights();
+  ls.digitalInput1.off();
+  ls.update();
   await delay(100);
 
-  ah.lights.digitalInput2.off();
-  ah.lights.updateLights();
+  ls.digitalInput2.off();
+  ls.update();
   await delay(100);
 
-  ah.lights.digitalInput3.off();
-  ah.lights.updateLights();
+  ls.digitalInput3.off();
+  ls.update();
   await delay(100);
 
-  ah.lights.relay1NO.off();
-  ah.lights.updateLights();
+  ls.relay1NO.off();
+  ls.update();
   await delay(100);
 
-  ah.lights.relay1NC.off();
-  ah.lights.updateLights();
+  ls.relay1NC.off();
+  ls.update();
   await delay(100);
 
-  ah.lights.relay2NO.off();
-  ah.lights.updateLights();
+  ls.relay2NO.off();
+  ls.update();
   await delay(100);
 
-  ah.lights.relay2NC.off();
-  ah.lights.updateLights();
+  ls.relay2NC.off();
+  ls.update();
   await delay(100);
 
-  ah.lights.relay3NO.off();
-  ah.lights.updateLights();
+  ls.relay3NO.off();
+  ls.update();
   await delay(100);
 
-  ah.lights.relay3NC.off();
-  ah.lights.updateLights();
+  ls.relay3NC.off();
+  ls.update();
   await delay(100);
 
-  ah.lights.warn.off();
-  ah.lights.updateLights();
+  ls.warn.off();
+  ls.update();
   await delay(100);
 
-  ah.lights.comms.off();
-  ah.lights.updateLights();
+  ls.comms.off();
+  ls.update();
   await delay(100);
 
-  ah.lights.power.off();
-  ah.lights.updateLights();
+  ls.power.off();
+  ls.update();
   await delay(100);
 }
 
-async function testRelays(ah: AutomationHat) {
+async function testRelays(rs: RelayService) {
   // test all the relays work
   for (let i = 0; i < 2; i++) {
-    ah.relays.relay1.on();
-    ah.relays.relay2.on();
-    ah.relays.relay3.on();
+    rs.relay1.on();
+    rs.relay2.on();
+    rs.relay3.on();
     await delay(500);
 
-    ah.relays.relay1.off();
-    ah.relays.relay2.off();
-    ah.relays.relay3.off();
+    rs.relay1.off();
+    rs.relay2.off();
+    rs.relay3.off();
     await delay(500);
   }
+
+  rs.disable();
 }
 
 async function main() {
+  const ls = new LightService();
+  const rs = new RelayService(ls);
   const ah = new AutomationHat();
 
-  await testLights(ah);
-  await testRelays(ah);
+  await testLights(ls);
+  await testRelays(rs);
+
+  // await testEverything();
 }
 
 main();

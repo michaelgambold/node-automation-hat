@@ -10,9 +10,9 @@ export class AutomationHat {
   readonly relays: RelayService;
 
   constructor() {
+    this.lights = new LightService();
     this.digitalInputs = new DigitalInputService();
     this.digitalOutputs = new DigitalOutputService();
-    this.lights = new LightService();
-    this.relays = new RelayService();
+    this.relays = new RelayService(this.lights);
   }
 }

@@ -1,6 +1,6 @@
 import { i2cBegin, i2cSetBaudRate, i2cSetSlaveAddress, i2cWrite } from 'rpio';
 
-export enum LightIndex {
+enum LightIndex {
   AnalogInput1 = 0,
   AnalogInput2 = 1,
   AnalogInput3 = 2,
@@ -67,6 +67,7 @@ export class LightService {
     i2cSetSlaveAddress(0x54); // sn3218 fixed address
     i2cSetBaudRate(400_000); // sn3218 fixed baud rate
 
+    this.enableLights();
     this.lights = [];
 
     // lights are controlled through SN3218 so only have 18 channels
@@ -112,8 +113,9 @@ export class LightService {
     console.log(status);
   }
 
-  enableLights(enableMask: number): void {
-    // i don't know wtf this is
+  private enableLights(): void {
+    // I don't know wtf this is I just copied it. just enable all the lights
+    const enableMask = 0b111111111111111111;
     const maskArray = [
       enableMask & 0x3f,
       (enableMask >> 6) & 0x3f,
@@ -124,7 +126,7 @@ export class LightService {
     i2cWrite(Buffer.from([this.cmdUpdate, 0xff]));
   }
 
-  updateLights(): void {
+  update(): void {
     const lightData = this.lights.map((light) => {
       return light.state === 'on' ? this.maxBrightness : 0;
     });
