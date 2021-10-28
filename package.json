@@ -1,0 +1,48 @@
+{
+  "name": "automation-hat",
+  "version": "1.0.0",
+  "description": "Node.js project to support Pimoroni Automation Hat",
+  "main": "main.ts",
+  "dependencies": {
+    "rpio": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "@types/rpio": "^2.4.2",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "jest": "^27.3.1",
+    "prettier": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.4.4"
+  },
+  "scripts": {
+    "prepack": "npm run build",
+    "prebuild": "rimraf dist",
+    "build": "tsc --build",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint '{src,apps,libs,test,bin}/**/*.{ts,js}'",
+    "start": "node dist/main.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelgambold/node-automation-hat.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Michael Gambold",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaelgambold/node-automation-hat/issues"
+  },
+  "homepage": "https://github.com/michaelgambold/node-automation-hat#readme"
+}
