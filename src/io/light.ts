@@ -114,7 +114,7 @@ export class LightService {
   }
 
   private enableLights(): void {
-    // I don't know wtf this is I just copied it. just enable all the lights
+    // create bit mask and bit shift this into 6 bit chunks?
     const enableMask = 0b111111111111111111;
     const maskArray = [
       enableMask & 0x3f,
