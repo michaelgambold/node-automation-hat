@@ -184,12 +184,34 @@ describe('test automation hub', () => {
     const ls = new LightService();
     const dis = new DigitalInputService(ls);
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 3; i++) {
       dis.read();
       console.log(
         `1: ${dis.input1.state}, 2: ${dis.input2.state}, 3: ${dis.input3.state}`
       );
       await delay(1000);
     }
+  });
+
+  it('should test digital outputs', async () => {
+    const ls = new LightService();
+    const dos = new DigitalOutputService(ls);
+
+    dos.output1.high();
+    await delay(1000);
+
+    dos.output1.low();
+    dos.output2.high();
+    await delay(1000);
+
+    dos.output2.low();
+    dos.output3.high();
+    await delay(1000);
+
+    dos.output2.high();
+    dos.output1.high();
+    await delay(1000);
+
+    dos.disable();
   });
 });
