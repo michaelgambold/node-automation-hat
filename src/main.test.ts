@@ -1,3 +1,4 @@
+import { DigitalInputService } from './io/digital-input';
 import { DigitalOutputService } from './io/digital-output';
 import { LightService } from './io/light';
 import { RelayService } from './io/relay';
@@ -6,7 +7,7 @@ function delay(ms: number) {
   return new Promise((res) => setTimeout(res, ms));
 }
 
-describe('test lights', () => {
+describe('test automation hub', () => {
   it('should scroll all lights', async () => {
     const ls = new LightService();
     // test all the lights work
@@ -158,9 +159,7 @@ describe('test lights', () => {
     ls.update();
     await delay(100);
   });
-});
 
-describe('test relays', () => {
   it('should test all relays', async () => {
     const ls = new LightService();
     const rs = new RelayService(ls);
@@ -180,36 +179,17 @@ describe('test relays', () => {
 
     rs.disable();
   });
-});
 
-describe('test digital outputs', () => {
-  it('should toggle digital outputs', async () => {
+  it('should test digital inputs', async () => {
     const ls = new LightService();
-    const dos = new DigitalOutputService(ls);
+    const dis = new DigitalInputService(ls);
 
-    dos.output1.high();
-    await delay(1000);
-
-    dos.output1.low();
-    await delay(1000);
-
-    dos.output2.high();
-    await delay(1000);
-
-    dos.output2.low();
-    await delay(1000);
-
-    dos.output3.high();
-    await delay(1000);
-
-    dos.output3.low();
-    await delay(1000);
-
-    dos.output1.high();
-    dos.output2.high();
-    dos.output3.high();
-    await delay(500);
-
-    dos.disable();
+    for (let i = 0; i < 100; i++) {
+      dis.read();
+      console.log(
+        `1: ${dis.input1.state}, 2: ${dis.input2.state}, 3: ${dis.input3.state}`
+      );
+      await delay(1000);
+    }
   });
 });

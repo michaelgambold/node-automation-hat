@@ -11,7 +11,7 @@ export class AutomationHat {
 
   constructor() {
     this.lights = new LightService();
-    this.digitalInputs = new DigitalInputService();
+    this.digitalInputs = new DigitalInputService(this.lights);
     this.digitalOutputs = new DigitalOutputService(this.lights);
     this.relays = new RelayService(this.lights);
   }
