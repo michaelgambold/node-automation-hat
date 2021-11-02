@@ -1,13 +1,16 @@
+import delay from 'delay';
+import rpio from 'rpio';
 import { DigitalInputService } from './io/digital-input';
 import { DigitalOutputService } from './io/digital-output';
 import { LightService } from './io/light';
 import { RelayService } from './io/relay';
 
-function delay(ms: number) {
-  return new Promise((res) => setTimeout(res, ms));
-}
-
 describe('test automation hub', () => {
+  rpio.init({
+    gpiomem: false,
+    mock: 'raspi-3',
+  });
+
   it('should scroll all lights', async () => {
     const ls = new LightService();
     // test all the lights work
