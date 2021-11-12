@@ -109,8 +109,7 @@ export class LightService {
   }
 
   enable(): void {
-    const status = i2cWrite(Buffer.from([this.cmdEnableOutput, 0x01]));
-    console.log(status);
+    i2cWrite(Buffer.from([this.cmdEnableOutput, 0x01]));
   }
 
   private enableLights(): void {
