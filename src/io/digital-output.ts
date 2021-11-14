@@ -32,7 +32,7 @@ export class DigitalOutputService {
   }
 }
 
-type DigitalOutputState = 'high' | 'low';
+export type DigitalOutputState = 'high' | 'low';
 
 class DigitalOutput {
   private readonly gpio: Gpio;

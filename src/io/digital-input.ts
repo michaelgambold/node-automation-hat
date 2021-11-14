@@ -32,7 +32,7 @@ export class DigitalInputService {
   }
 }
 
-type DigitalInputState = 'high' | 'low';
+export type DigitalInputState = 'high' | 'low';
 
 class DigitalInput {
   get state(): DigitalInputState {

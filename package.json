@@ -1,9 +1,11 @@
 {
   "name": "automation-hat",
-  "version": "1.0.0",
+  "version": "1.0.0-rc.2",
   "description": "Node.js project to support Pimoroni Automation Hat",
-  "main": "main.ts",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
   "dependencies": {
+    "delay": "^5.0.0",
     "rpio": "^2.4.2"
   },
   "devDependencies": {

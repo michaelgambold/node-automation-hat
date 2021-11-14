@@ -58,7 +58,7 @@ export class RelayService {
 
 export type RelayState = 'on' | 'off';
 
-export class Relay {
+class Relay {
   private currState: RelayState;
   private readonly gpio: Gpio;
   private readonly lightNC: Light;
