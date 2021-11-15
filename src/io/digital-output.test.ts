@@ -42,6 +42,18 @@ describe('test digital outputs', () => {
     expect(service.output3.state).toEqual<DigitalOutputState>('high');
   });
 
+  it('should be able to toggle outputs', () => {
+    expect(service.output1.state).toEqual<DigitalOutputState>('low');
+
+    service.output1.high();
+
+    expect(service.output1.state).toEqual<DigitalOutputState>('high');
+
+    service.output1.low();
+
+    expect(service.output1.state).toEqual<DigitalOutputState>('low');
+  });
+
   it('should be able to disable service', () => {
     service.output1.high();
     service.output2.high();
