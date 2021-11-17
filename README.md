@@ -23,7 +23,7 @@ npm i node-automation-hat
 
 ## How to Use
 
-### AutomationHat
+### Automation Hat
 
 To simply use the whole library create an instance of the `AutomationHat` class.
 This class has all other functionality of the Automation Hat already configured but disabled (except for the led lights).
