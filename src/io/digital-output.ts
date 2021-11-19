@@ -68,4 +68,12 @@ class DigitalOutput {
     this.light.off();
     this.lightService.update();
   }
+
+  toggle(): void {
+    if (this.state === 'low') {
+      this.high();
+      return;
+    }
+    this.low();
+  }
 }
