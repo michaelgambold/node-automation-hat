@@ -1,4 +1,4 @@
-# node-automation-hat
+# Automation Hat
 
 Node.js project to support Pimoroni Automation Hat (https://shop.pimoroni.com/products/automation-hat)
 
@@ -18,7 +18,7 @@ Currently not supported
 Simply run
 
 ```
-npm i node-automation-hat
+npm i automation-hat
 ```
 
 ## How to Use
