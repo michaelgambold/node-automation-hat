@@ -12,4 +12,6 @@ export class AnalogInputService {
   }
 }
 
-class AnalogInput {}
+class AnalogInput {
+  // TODO: reverse engineer python library
+}

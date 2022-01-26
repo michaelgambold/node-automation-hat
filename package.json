@@ -5,22 +5,22 @@
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "dependencies": {
-    "delay": "^5.0.0",
     "rpio": "^2.4.2"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.2",
+    "@types/jest": "^27.4.0",
     "@types/rpio": "^2.4.2",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
-    "eslint": "^7.32.0",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "delay": "^5.0.0",
+    "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.2",
-    "jest": "^27.3.1",
-    "prettier": "^2.4.1",
+    "eslint-plugin-import": "^2.25.4",
+    "jest": "^27.4.7",
+    "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
-    "ts-jest": "^27.0.7",
-    "typescript": "^4.4.4"
+    "ts-jest": "^27.1.3",
+    "typescript": "^4.5.5"
   },
   "scripts": {
     "prepack": "npm run build",
