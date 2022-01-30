@@ -110,6 +110,8 @@ export class LightService {
 
   enable(): void {
     i2cWrite(Buffer.from([this.cmdEnableOutput, 0x01]));
+    this.power.on();
+    this.update();
   }
 
   private enableLights(): void {
