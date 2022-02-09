@@ -103,14 +103,14 @@ describe('test lights', () => {
 
   it('should allow overriding the brightness', () => {
     service.setLedBrightness(0);
-    service.setLedBrightness(80);
     service.setLedBrightness(128);
+    service.setLedBrightness(255);
   });
 
   it('should throw errors for invalid brightness levels', () => {
-    const errorMsg = 'Invalid brightness, value must be between 0-128';
+    const errorMsg = 'Invalid brightness, value must be between 0-255';
 
     expect(() => service.setLedBrightness(-1)).toThrowError(errorMsg);
-    expect(() => service.setLedBrightness(129)).toThrowError(errorMsg);
+    expect(() => service.setLedBrightness(256)).toThrowError(errorMsg);
   });
 });
