@@ -1,7 +1,7 @@
 import rpio from 'rpio';
 import { AutomationHat } from './main';
 
-describe('test automation hub', () => {
+describe('test automation hat', () => {
   let automationHat: AutomationHat;
 
   beforeAll(() => {

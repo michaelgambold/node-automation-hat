@@ -26,12 +26,13 @@
     "prepack": "npm run build",
     "prebuild": "rimraf dist",
     "build": "tsc --build",
+    "e2e": "jest e2e",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint '{src,apps,libs,test,bin}/**/*.{ts,js}'",
     "start": "node dist/main.js",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
+    "test": "jest src",
+    "test:watch": "jest src --watch",
+    "test:cov": "jest src --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
   },
   "repository": {
