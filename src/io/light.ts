@@ -54,6 +54,7 @@ export class LightService {
 
   private readonly lights: Light[];
   private readonly maxBrightness = 128;
+  private brightness: number;
 
   // sn3218 command register addresses
   private readonly cmdEnableOutput = 0x00;
@@ -63,6 +64,8 @@ export class LightService {
   private readonly cmdReset = 0x17;
 
   constructor() {
+    this.brightness = this.maxBrightness;
+
     i2cBegin();
     i2cSetSlaveAddress(0x54); // sn3218 fixed address
     i2cSetBaudRate(400_000); // sn3218 fixed baud rate
@@ -100,10 +103,6 @@ export class LightService {
     this.warn = this.lights[LightIndex.Warn];
   }
 
-  reset(): void {
-    i2cWrite(Buffer.from([this.cmdReset, 0xff]));
-  }
-
   disable(): void {
     i2cWrite(Buffer.from([this.cmdEnableOutput, 0x00]));
   }
@@ -127,9 +126,23 @@ export class LightService {
     i2cWrite(Buffer.from([this.cmdUpdate, 0xff]));
   }
 
+  reset(): void {
+    i2cWrite(Buffer.from([this.cmdReset, 0xff]));
+  }
+
+  setLedBrightness(brightness: number): void {
+    if (brightness === 0) {
+      this.brightness = 0;
+    } else if (brightness > 0 && brightness <= this.maxBrightness) {
+      this.brightness = brightness;
+    } else {
+      throw new Error('Invalid brightness, value must be between 0-128');
+    }
+  }
+
   update(): void {
     const lightData = this.lights.map((light) => {
-      return light.state === 'on' ? this.maxBrightness : 0;
+      return light.state === 'on' ? this.brightness : 0;
     });
 
     i2cWrite(Buffer.from([this.cmdSetPwmValues, ...lightData]));

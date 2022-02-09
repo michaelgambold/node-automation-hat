@@ -100,4 +100,17 @@ describe('test lights', () => {
     expect(service.relay3NC.state).toEqual<LightState>('on');
     expect(service.relay3NO.state).toEqual<LightState>('on');
   });
+
+  it('should allow overriding the brightness', () => {
+    service.setLedBrightness(0);
+    service.setLedBrightness(80);
+    service.setLedBrightness(128);
+  });
+
+  it('should throw errors for invalid brightness levels', () => {
+    const errorMsg = 'Invalid brightness, value must be between 0-128';
+
+    expect(() => service.setLedBrightness(-1)).toThrowError(errorMsg);
+    expect(() => service.setLedBrightness(129)).toThrowError(errorMsg);
+  });
 });
