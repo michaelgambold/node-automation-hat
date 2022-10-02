@@ -9,5 +9,5 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    assignees
+    assignees:
       - "michaelgambold"
