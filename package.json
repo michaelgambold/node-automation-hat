@@ -1,6 +1,6 @@
 {
   "name": "automation-hat",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Node.js project to support Pimoroni Automation Hat",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
