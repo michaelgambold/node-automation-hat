@@ -4,6 +4,9 @@
   "description": "Node.js project to support Pimoroni Automation Hat",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
+  "engines": {
+    "node": ">=14.0.0 <19"
+  },
   "dependencies": {
     "rpio": "^2.4.2"
   },
