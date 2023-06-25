@@ -1,11 +1,11 @@
 {
   "name": "automation-hat",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "description": "Node.js project to support Pimoroni Automation Hat",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "engines": {
-    "node": ">=14.0.0 <19"
+    "node": ">=16.0.0 <21"
   },
   "dependencies": {
     "rpio": "^2.4.2"
