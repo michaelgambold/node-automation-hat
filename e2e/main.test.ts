@@ -1,4 +1,4 @@
-import delay from 'delay';
+import { setTimeout } from 'timers/promises';
 import { AutomationHat } from '../src/main';
 
 describe('test automation hub', () => {
@@ -46,7 +46,7 @@ describe('test automation hub', () => {
 
     automationHat.lights.update();
 
-    await delay(1000);
+    await setTimeout(1000);
   });
 
   it('should be able to change led brightness', async () => {
@@ -57,10 +57,10 @@ describe('test automation hub', () => {
     while (brightness > 0) {
       automationHat.lights.setLedBrightness(--brightness);
       automationHat.lights.update();
-      await delay(10);
+      await setTimeout(10);
     }
 
-    await delay(1000);
+    await setTimeout(1000);
   });
 
   it('should change all relays', async () => {
@@ -68,14 +68,14 @@ describe('test automation hub', () => {
     automationHat.relays.enable();
 
     automationHat.relays.relay1.on();
-    await delay(250);
+    await setTimeout(250);
 
     automationHat.relays.relay2.on();
-    await delay(250);
+    await setTimeout(250);
 
     automationHat.relays.relay3.on();
-    await delay(250);
+    await setTimeout(250);
 
-    await delay(1000);
+    await setTimeout(1000);
   });
 });
