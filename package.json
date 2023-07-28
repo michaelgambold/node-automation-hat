@@ -5,7 +5,7 @@
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "engines": {
-    "node": ">=16.0.0 <21"
+    "node": ">=16.0.0 <20"
   },
   "dependencies": {
     "rpio": "^2.4.2"
