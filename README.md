@@ -8,7 +8,7 @@ The node version support and the corresponding version of this library are liste
 | ---------------------- | ----------------------- |
 | 1                      | 14, 15, 16, 17, 18, 19  |
 | 2.0                    | 16, 17, 18, 19          |
-| 2.1                    | 16, 17, 18,19, 20       |
+| 2.1+                   | 16, 17, 18,19, 20       |
 
 Supported functionality:
 
