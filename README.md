@@ -1,6 +1,7 @@
 # Automation Hat
 
 Node.js project to support Pimoroni Automation Hat (https://shop.pimoroni.com/products/automation-hat)
+running on Raspberry Pis.
 
 The node version support and the corresponding version of this library are listed in the table below.
 
@@ -9,6 +10,7 @@ The node version support and the corresponding version of this library are liste
 | 1                      | 14, 15, 16, 17, 18, 19  |
 | 2.0                    | 16, 17, 18, 19          |
 | 2.1+                   | 16, 17, 18,19, 20       |
+| 3.0+                   | 18, 19, 20, 21, 22      |
 
 Supported functionality:
 
@@ -20,6 +22,12 @@ Supported functionality:
 Currently not supported
 
 - Analog Input
+
+## Hardware Supported
+
+Raspberry Pi versions 3 and 4 should be supported however version 5 has not been tested.
+
+The underlying hardware design has changed and may not work as expected.
 
 ## Installing
 
